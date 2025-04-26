@@ -5,7 +5,7 @@ import SignIn from "./pages/SignIn";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LoginProvider from "./context/LoginProvider";
-import Confirmation from "./pages/confirmation";
+import Confirmation from "./pages/Confirmation";
 
 const queryClient = new QueryClient();
 
