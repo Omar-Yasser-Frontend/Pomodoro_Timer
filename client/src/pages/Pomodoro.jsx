@@ -3,7 +3,6 @@ import Container from "../components/Container";
 import Header from "../components/Header";
 import PomoTasks from "../components/PomoTasks";
 import Timer from "../components/Timer";
-import LoginProvider from "../context/LoginProvider";
 
 function Pomodoro() {
   return (

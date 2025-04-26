@@ -1,12 +1,10 @@
-import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import { useConfirmation } from "../hooks/useConfirmation";
 
 function ConfirmationForm() {
-  const navigate = useNavigate();
   const [errors, setErrors] = useState("");
   const [code, setCode] = useState("");
-  const { data, isPending, mutate } = useConfirmation();
+  const { mutate } = useConfirmation();
 
   return (
     <>
