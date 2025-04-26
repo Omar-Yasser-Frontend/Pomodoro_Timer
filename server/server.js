@@ -32,30 +32,5 @@ mongoose
   .then(() => console.log("server connected"))
   .catch((err) => console.error("error ocurred " + err));
 
-// const transporter = nodemailer.createTransport({
-//   host: "smtp.gmail.com",
-//   port: 587,
-//   secure: false, // true for port 465, false for other ports
-//   auth: {
-//     user: "helperemail14716@gmail.com",
-//     pass: "mjdirefwseoqexkc",
-//   },
-// });
-
-// async..await is not allowed in global scope, must use a wrapper
-// async function main() {
-//   // send mail with defined transport object
-//   const info = await transporter.sendMail({
-//     from: `"omar yasser" <helperemail14716@gmail.com>`, // sender address
-//     to: "ranaomar14716@gmail.com", // list of receivers
-//     subject: "Welcome, from Omar!",
-//     html: "<h1>Thanks for reaching us we will fix it soon</h1>",
-//   });
-
-//   console.log("Message sent: %s", info.messageId);
-//   // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-// }
-
-// main().catch(console.error);
 
 app.listen(port, () => console.log("starting server on port " + port + "..."));
