@@ -13,7 +13,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    origin: ["https://pomodoro-timer-hpdq.vercel.app/"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
@@ -31,6 +31,5 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("server connected"))
   .catch((err) => console.error("error ocurred " + err));
-
 
 app.listen(port, () => console.log("starting server on port " + port + "..."));
