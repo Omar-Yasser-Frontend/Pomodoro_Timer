@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  transition-duration: 1s;
+  --red-tomato: #ba4949;
+  &.short {
+    --red-tomato: #38858a;
+  }
+  &.long {
+    --red-tomato: #397097;
+  }
+}
+
+@theme {
+  --color-red-tomato: var(--red-tomato);
+}
+
+.nav-list li:not(:last-child, :has(a)) {
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+@media (width <= 576px) {
+  .nav-list li span {
+    display: none;
+  }
+}
+@media (width <= 350px) {
+  header h1 span {
+    display: none;
+  }
+}
+@media (width <= 230px) {
+  header {
+    display: none;
+  }
+}
+
+.signin label {
+  @apply text-gray-400 mb-1;
+}
