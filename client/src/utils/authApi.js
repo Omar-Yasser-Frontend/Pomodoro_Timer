@@ -1,6 +1,6 @@
 export async function register(userData) {
   const res = await fetch(
-    "https://pomodoro-seperate-server-1hzs.vercel.app/api/register",
+    "https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/register",
     {
       method: "POST",
       credentials: "include",
@@ -17,7 +17,7 @@ export async function register(userData) {
 
 export async function login({ gmail, password }) {
   const res = await fetch(
-    `https://pomodoro-seperate-server-1hzs.vercel.app/api/login`,
+    `https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/login`,
     {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -34,7 +34,7 @@ export async function login({ gmail, password }) {
 export async function logout() {
   try {
     const res = await fetch(
-      "https://pomodoro-seperate-server-1hzs.vercel.app/api/logout",
+      "https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/logout",
       {
         method: "POST",
         credentials: "include",
@@ -49,7 +49,7 @@ export async function logout() {
 }
 export async function confirmation(code) {
   const res = await fetch(
-    "https://pomodoro-seperate-server-1hzs.vercel.app/api/confirmation",
+    "https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/confirmation",
     {
       method: "POST",
       credentials: "include",

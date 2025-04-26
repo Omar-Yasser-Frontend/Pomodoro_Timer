@@ -13,7 +13,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["https://pomodoro-timer-hpdq.vercel.app/"],
+    origin: ["https://pomodoro-timer-cn3v.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })

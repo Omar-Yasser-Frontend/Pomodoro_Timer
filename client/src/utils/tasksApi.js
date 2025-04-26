@@ -6,7 +6,7 @@ export async function getTasks() {
   if (login !== false) return null;
 
   const res = await fetch(
-    `https://pomodoro-seperate-server-1hzs.vercel.app/api/tasks`,
+    `https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/tasks`,
     {
       credentials: "include",
     }
@@ -20,7 +20,7 @@ export async function getTasks() {
 
 export async function addTask(task) {
   const res = await fetch(
-    "https://pomodoro-seperate-server-1hzs.vercel.app/api/tasks",
+    "https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/tasks",
     {
       method: "POST",
       credentials: "include",
@@ -43,7 +43,7 @@ export async function deleteTask(_id) {
   if (login !== false) return null;
 
   const res = await fetch(
-    `https://pomodoro-seperate-server-1hzs.vercel.app/api/tasks/${_id}`,
+    `https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/tasks/${_id}`,
     {
       method: "DELETE",
       credentials: "include",
@@ -61,7 +61,7 @@ export async function updateTask({ _id, task }) {
 
   if (login !== false) return null;
   const res = await fetch(
-    `https://pomodoro-seperate-server-1hzs.vercel.app/api/tasks/${_id}`,
+    `https://3afde1ea-9062-4673-bedf-0d7f10f7f39c-00-2ziyswb0pl2vu.spock.replit.dev:8000/api/tasks/${_id}`,
     {
       method: "PUT",
       credentials: "include",
