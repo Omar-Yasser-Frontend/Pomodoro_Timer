@@ -5,19 +5,32 @@ const {
   createTask,
   updateTask,
   deleteTask,
-} = require("../controller/TaskController");
-const auth = require("../middleware/authMiddleware");
-const validator = require("../middleware/validatorMiddleware");
-const taskValidator = require("../utils/taskValidator");
-const updateValidator = require("../utils/taskUpdateValidator");
-const isAuth = require("../middleware/isAuth");
+} = require("../controller/ServerController");
+const {
+  authMiddleware,
+  validatorMiddleware,
+  isAuth,
+} = require("../middleware/Middlewares");
+const { taskValidator, taskUpdateValidator } = require("../utils/Validation");
 
-router.get("/", auth, isAuth, getTasks);
+router.get("/", authMiddleware, isAuth, getTasks);
 
-router.post("/", auth, isAuth, validator(taskValidator), createTask);
+router.post(
+  "/",
+  authMiddleware,
+  isAuth,
+  validatorMiddleware(taskValidator),
+  createTask
+);
 
-router.put("/:id", auth, isAuth, validator(updateValidator), updateTask);
+router.put(
+  "/:id",
+  authMiddleware,
+  isAuth,
+  validatorMiddleware(taskUpdateValidator),
+  updateTask
+);
 
-router.delete("/:id", auth, isAuth, deleteTask);
+router.delete("/:id", authMiddleware, isAuth, deleteTask);
 
 module.exports = router;

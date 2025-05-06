@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const errorMiddleware = require("./middleware/errorMiddleware");
-const originMiddleware = require("./middleware/originMiddleware");
+const {
+  errorMiddleware,
+  originMiddleware,
+} = require("./middleware/Middlewares");
 const tasksRouter = require("./routes/tasks");
 const userRouter = require("./routes/user");
 require("dotenv").config({ path: ".env.local" });
@@ -13,7 +15,10 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["https://pomodoro-timer-cn3v.vercel.app"],
+    origin: [
+      "https://pomodoro-timer-cn3v.vercel.app",
+      "https://pomodoro-timer-hpdq.vercel.app",
+    ],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
@@ -21,6 +26,10 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 // app.use(originMiddleware);
 app.use("/api", userRouter);

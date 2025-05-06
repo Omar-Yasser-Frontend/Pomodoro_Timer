@@ -14,7 +14,7 @@ function Header() {
   const { isLogin } = useIsLogin();
 
   return (
-    <header className="sticky top-0 backdrop-blur-md bg-black/30 border-b border-white/20 shadow-lg relative z-50 transition-all duration-300">
+    <header className="sticky top-0 backdrop-blur-md bg-black/30 border-b border-white/20 shadow-lg z-50 transition-all duration-300">
       <Container>
         <div className="h-20 flex justify-between items-center px-8">
           <h1 className="text-white font-extrabold text-2xl tracking-tight flex items-center gap-2 drop-shadow-lg">
