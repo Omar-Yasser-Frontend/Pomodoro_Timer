@@ -12,8 +12,9 @@ function AddTaskForm({ close }) {
   const [description, setDescription] = useState("");
   const [emptyTitle, setEmptyTitle] = useState(false);
   const addTask = (newTask) => setTasks([...newTask]);
+
   return (
-    <li className="bg-white text-gray-800 min-h-15 flex justify-center items-center mb-4 rounded-md overflow-hidden">
+    <li className="bg-white/10 text-white min-h-15 flex justify-center items-center mb-4 rounded-lg overflow-hidden shadow-lg backdrop-blur-md border border-white/20">
       <div className="w-full">
         <form
           onSubmit={(e) => {
@@ -38,17 +39,16 @@ function AddTaskForm({ close }) {
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              // onFocus={() => setEmptyTitle(false)}
               type="text"
-              placeholder="What are you working on ?"
-              className="text-xl w-full outline-none mb-4 placeholder:text-gray-300 placeholder:italic"
+              placeholder="What are you working on?"
+              className="w-full focus:outline-none focus:border-none mb-4 bg-white/20 rounded-lg p-2 text-white placeholder:text-gray-300"
             />
             {emptyTitle && (
               <p className="font-semibold text-red-600 text-lg">
                 Title could not be empty
               </p>
             )}
-            <div className="mb-4">
+            <div style={{ border: "1px solid red" }}>
               <input
                 type="text"
                 value={targetCount}
@@ -59,12 +59,12 @@ function AddTaskForm({ close }) {
                   )
                     setTargetCount(e.target.value);
                 }}
-                className="bg-gray-200 w-15 px-4 py-2 rounded-md"
+                className="p-3 w-15 outline-none bg-white/20 rounded-lg text-white"
               />
               <button
                 type="button"
                 onClick={() => setTargetCount((target) => ++target)}
-                className="p-4 shadow-xl ml-4 cursor-pointer text-gray-700"
+                className="p-4 shadow-xl ml-4 cursor-pointer text-white"
               >
                 <FaChevronUp />
               </button>
@@ -73,7 +73,7 @@ function AddTaskForm({ close }) {
                 onClick={() =>
                   setTargetCount((target) => (target === 1 ? target : --target))
                 }
-                className="p-4 shadow-xl ml-4 cursor-pointer text-gray-700"
+                className="p-4 shadow-xl ml-4 cursor-pointer text-white"
               >
                 <FaChevronDown />
               </button>
@@ -82,18 +82,18 @@ function AddTaskForm({ close }) {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Some notes..."
-              className="w-full bg-gray-200 rounded-sm min-h-20 placeholder:text-gray-300 p-4"
+              className="p-3 outline-none bg-white/20 rounded-lg mt-4 w-full text-white placeholder:text-gray-300"
             />
           </div>
-          <div className="bg-gray-200 p-4 flex">
+          <div className="bg-white/20 p-4 flex text-base">
             <button
               type="button"
-              className="py-2 px-4 cursor-pointer block ml-auto"
               onClick={close}
+              className="inline-block ml-auto py-2 px-3 cursor-pointer text-white"
             >
-              Close
+              Cancel
             </button>
-            <button className="px-4 py-2 cursor-pointer block bg-black text-white rounded-md">
+            <button className="py-2 px-3 cursor-pointer bg-emerald-600 text-white rounded-md">
               Save
             </button>
           </div>

@@ -3,6 +3,10 @@ import { MdSkipNext } from "react-icons/md";
 import { useTasks } from "../context/TasksContext";
 import { useManageUpdate } from "../hooks/useManageUpdate";
 import { checkLogin } from "../utils/isLogin";
+import { FaClock } from "react-icons/fa";
+import { GiTomato } from "react-icons/gi";
+import { MdOutlineCoffee } from "react-icons/md";
+import { MdOutlineTimer } from "react-icons/md";
 
 function PomoTimer() {
   const [_, handleUpdate] = useManageUpdate();
@@ -104,47 +108,54 @@ function PomoTimer() {
     <>
       <span
         ref={progressBar}
-        className={`absolute -top-10 h-0.5 block bg-white duration-100`}
+        className="absolute -top-10 h-0.5 block bg-white duration-100"
       ></span>
-      <div className="max-w-[480px] bg-[rgba(255,255,255,0.1)] mx-auto rounded-sm p-4 text-center">
-        <div className="flex items-center justify-center">
+      <div className="max-w-[480px] bg-white/10 mx-auto rounded-lg p-6 text-center shadow-lg backdrop-blur-md border border-white/20">
+        <div className="flex flex-row flex-nowrap items-center justify-center gap-2 mb-6">
           <button
             onClick={startPomodoro}
-            className={`cursor-pointer py-0.5 px-3 rounded-sm ${
-              "pomodoro" === tab ? "bg-[rgb(0,0,0,0.2)] font-semibold" : ""
+            className={`cursor-pointer py-1.5 px-3 rounded-full transition text-sm flex items-center ${
+              "pomodoro" === tab
+                ? "bg-emerald-600 text-white font-semibold"
+                : "bg-white/20 text-white hover:bg-white/30"
             }`}
           >
-            Pomodoro
+            <GiTomato className="text-sm mr-1" />{" "}
+            <span className="text-sm">Pomodoro</span>
           </button>
           <button
             onClick={startShortBreak}
-            className={`cursor-pointer py-0.5 px-3 rounded-sm ${
-              "short break" === tab ? "bg-[rgb(0,0,0,0.2)] font-semibold" : ""
+            className={`cursor-pointer py-1.5 px-3 rounded-full transition text-sm flex items-center ${
+              "short break" === tab
+                ? "bg-blue-600 text-white font-semibold"
+                : "bg-white/20 text-white hover:bg-white/30"
             }`}
           >
-            Short Break
+            <MdOutlineCoffee className="text-sm mr-1" />{" "}
+            <span className="text-sm">Short Break</span>
           </button>
           <button
             onClick={startLongBreak}
-            className={`cursor-pointer py-0.5 px-3 rounded-sm ${
-              "long break" === tab ? "bg-[rgb(0,0,0,0.2)] font-semibold" : ""
+            className={`cursor-pointer py-1.5 px-3 rounded-full transition text-sm flex items-center ${
+              "long break" === tab
+                ? "bg-blue-800 text-white font-semibold"
+                : "bg-white/20 text-white hover:bg-white/30"
             }`}
           >
-            Long Break
+            <MdOutlineTimer className="text-sm mr-1" />{" "}
+            <span className="text-sm">Long Break</span>
           </button>
         </div>
-        <p className="text-9xl font-semibold w-fit mx-auto mt-5">
+        <p className="text-9xl font-bold w-fit mx-auto mt-5 text-white drop-shadow-lg">
           {String(Math.floor(timer / 60)).padStart(2, "0")}:
           {String(Math.floor(timer % 60)).padStart(2, "0")}
         </p>
-        <div className="relative">
+        <div className="flex justify-center">
           <button
             onClick={() => setStartTimer((start) => !start)}
-            className={`mb-4 mt-5 bg-white text-red-tomato h-14 w-50 px-3 text-2xl font-semibold uppercase cursor-pointer border-gray-200 rounded-md active:border-b-0 active:translate-y-2 ${
-              startTimer ? "border-b-0 translate-y-2" : "border-b-8"
-            }`}
+            className="mb-4 mt-5 bg-emerald-600 text-white h-14 w-50 px-6 text-2xl font-semibold uppercase cursor-pointer rounded-full shadow-lg hover:scale-105 transition flex items-center justify-center"
           >
-            {startTimer ? "Pause" : "start"}
+            <FaClock className="mr-2" /> {startTimer ? "Pause" : "Start"}
           </button>
         </div>
       </div>
@@ -152,13 +163,15 @@ function PomoTimer() {
         <button
           className="text-gray-300 hover:text-white cursor-pointer"
           onClick={() => {
-            const reset = confirm("do you want to reset your pomodoro counter");
+            const reset = confirm(
+              "Do you want to reset your pomodoro counter?"
+            );
             if (reset) setCounter(1);
           }}
         >
           #{counter}
         </button>
-        <p>
+        <p className="text-white font-semibold mt-2">
           {curTask
             ? curTask.title
             : tab === "pomodoro"

@@ -24,7 +24,7 @@ function DropDownBtn({ children, type }) {
         ref: ref,
         className:
           children.props.className +
-          ` absolute top-full right-0 ${show ? "" : "hidden"} z-10`,
+          ` absolute top-full right-0 ${show ? "" : "hidden"} z-50`,
       })}
     </div>
   );

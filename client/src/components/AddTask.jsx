@@ -12,7 +12,7 @@ function AddTask() {
       ) : (
         <li
           onClick={() => setShow(true)}
-          className="h-15 bg-[rgb(0,0,0,0.1)] rounded-sm cursor-pointer border-2 border-dashed border-gray-200 flex justify-center items-center font-semibold text-lg text-gray-200 gap-1 hover:text-white hover:border-white"
+          className="h-15 bg-[rgba(255,255,255,0.1)] rounded-lg cursor-pointer border-2 border-dashed border-white/20 flex justify-center items-center font-semibold text-lg text-white gap-1 hover:bg-white/20 transition"
         >
           <IoAddCircleSharp fontSize={22} /> Add Item
         </li>

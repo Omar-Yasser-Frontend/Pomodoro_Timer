@@ -11,7 +11,7 @@ function Task({ task, index }) {
   const { title, targetCount, count, description, completed } = task;
   const close = () => setEdit(false);
   return (
-    <li className="bg-white text-gray-800 min-h-15 flex justify-center items-center mb-4 rounded-md overflow-hidden">
+    <li className="bg-white/10 text-white min-h-15 flex justify-center items-center mb-4 rounded-lg overflow-hidden shadow-lg backdrop-blur-md border border-white/20">
       {edit ? (
         <EditTask index={index} close={close} task={task} />
       ) : (
@@ -26,10 +26,10 @@ function Task({ task, index }) {
           className={`flex justify-between items-center grow p-4 cursor-pointer border-l-8 ${
             !checkLogin()
               ? curTask?.id === task?.id
-                ? "border-gray-900"
+                ? "border-red-500"
                 : "border-gray-400"
               : curTask?._id === task?._id
-              ? "border-gray-900"
+              ? "border-red-500"
               : "border-gray-400"
           } flex-wrap`}
         >
@@ -43,14 +43,16 @@ function Task({ task, index }) {
             <div className="relative">
               <button
                 onClick={() => setEdit(true)}
-                className={`p-2 rounded-sm cursor-pointer border-gray-200  border-1`}
+                className={`p-2 rounded-full cursor-pointer bg-white/20 hover:bg-white/30 transition`}
               >
-                <BsThreeDotsVertical fontSize={16} />
+                <BsThreeDotsVertical fontSize={16} className="text-white" />
               </button>
             </div>
           </div>
           {description && (
-            <p className="w-full p-3 bg-amber-100 mt-3">{description}</p>
+            <p className="w-full p-3 bg-amber-100 mt-3 text-gray-800 rounded-lg">
+              {description}
+            </p>
           )}
         </div>
       )}

@@ -2,12 +2,12 @@
 
 :root {
   transition-duration: 1s;
-  --red-tomato: #ba4949;
+  --red-tomato: #2c3e50;
   &.short {
-    --red-tomato: #38858a;
+    --red-tomato: #333333;
   }
   &.long {
-    --red-tomato: #397097;
+    --red-tomato: #1a1a1a;
   }
 }
 
@@ -27,7 +27,7 @@
   font-size: 13px;
 }
 
-@media (width <= 576px) {
+@media (width <= 640px) {
   .nav-list li span {
     display: none;
   }

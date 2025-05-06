@@ -6,13 +6,13 @@ import Timer from "../components/Timer";
 
 function Pomodoro() {
   return (
-    <Container>
+    <>
       <Header />
       <TasksProvider>
         <Timer />
         <PomoTasks />
       </TasksProvider>
-    </Container>
+    </>
   );
 }
 

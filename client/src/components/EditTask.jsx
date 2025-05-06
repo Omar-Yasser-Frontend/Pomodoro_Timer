@@ -46,12 +46,13 @@ function EditTask({ task, close }) {
             type="text"
             value={inputTitle}
             onChange={(e) => setInputTitle(e.target.value)}
-            className="w-full focus:outline-none focus:border-none mb-4"
+            className="w-full focus:outline-none focus:border-none mb-4 bg-white/20 rounded-lg p-2 text-white placeholder:text-gray-300"
+            placeholder="What are you working on?"
           />
           <div>
             <input
               type="number"
-              className="p-3 w-15 outline-none bg-gray-200 rounded-lg mr-4"
+              className="p-3 w-15 outline-none bg-white/20 rounded-lg mr-4 text-white"
               value={inputCount}
               onChange={(e) =>
                 Number(e.target.value) < 0
@@ -61,12 +62,9 @@ function EditTask({ task, close }) {
             />
             <input
               type="text"
-              className="p-3 w-15 outline-none bg-gray-200 rounded-lg"
+              className="p-3 w-15 outline-none bg-white/20 rounded-lg text-white"
               value={inputTarget}
               onChange={(e) => {
-                console.log(e.target.value);
-                console.log(e.target.value < 1);
-
                 Number(e.target.value) < 1
                   ? null
                   : setInputTarget(e.target.value);
@@ -75,7 +73,7 @@ function EditTask({ task, close }) {
             <button
               type="button"
               onClick={() => setInputTarget((target) => ++target)}
-              className="p-4 shadow-xl ml-4 cursor-pointer text-gray-700"
+              className="p-4 shadow-xl ml-4 cursor-pointer text-white"
             >
               <FaChevronUp />
             </button>
@@ -84,18 +82,19 @@ function EditTask({ task, close }) {
               onClick={() =>
                 inputTarget <= 1 ? null : setInputTarget((target) => --target)
               }
-              className="p-4 shadow-xl ml-4 cursor-pointer text-gray-700"
+              className="p-4 shadow-xl ml-4 cursor-pointer text-white"
             >
               <FaChevronDown />
             </button>
           </div>
           <textarea
-            className="p-3 outline-none bg-gray-200 rounded-lg mt-4 w-full"
+            className="p-3 outline-none bg-white/20 rounded-lg mt-4 w-full text-white placeholder:text-gray-300"
             value={inputDescription}
             onChange={(e) => setInputDescription(e.target.value)}
+            placeholder="Some notes..."
           />
         </div>
-        <div className="bg-gray-200 mt-4 p-4 flex text-base">
+        <div className="bg-white/20 p-4 flex text-base">
           <button
             type="button"
             onClick={() => {
@@ -108,18 +107,18 @@ function EditTask({ task, close }) {
                 handleDelete(taskId, close);
               }
             }}
-            className="py-2 px-3 cursor-pointer"
+            className="py-2 px-3 cursor-pointer text-white"
           >
             Delete
           </button>
           <button
             type="button"
             onClick={close}
-            className="inline-block ml-auto py-2 px-3 cursor-pointer"
+            className="inline-block ml-auto py-2 px-3 cursor-pointer text-white"
           >
             Cancel
           </button>
-          <button className="py-2 px-3 cursor-pointer bg-gray-900 text-white rounded-md">
+          <button className="py-2 px-3 cursor-pointer bg-emerald-600 text-white rounded-md">
             Save
           </button>
         </div>
