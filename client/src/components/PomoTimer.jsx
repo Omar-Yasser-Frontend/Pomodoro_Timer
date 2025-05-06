@@ -45,7 +45,7 @@ function PomoTimer() {
         setTimer((curTimer) => {
           return curTimer - 1;
         });
-      }, 50);
+      }, 1000);
     }
 
     return () => clearInterval(timerHandler.current);
